@@ -31,6 +31,9 @@ public class MenuItem {
 
     private String description;
 
+    // THÊM: "kho", "nuoc", "hap", null (nếu không phải món Chính)
+    private String cookingStyle;
+
     @Column(nullable = false)
     private BigDecimal price;
 

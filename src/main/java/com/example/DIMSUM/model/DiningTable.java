@@ -31,4 +31,6 @@ public class DiningTable {
 
     // QR code (link hoặc mã)
     private String qrCode;
+
+    private String qrImagePath;
 }
