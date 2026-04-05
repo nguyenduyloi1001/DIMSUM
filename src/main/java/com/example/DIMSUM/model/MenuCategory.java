@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -29,9 +30,21 @@ public class MenuCategory {
     private Integer sortOrder=0;
 
     //Danh mục còn dùng hay tạm ẩn.
+    @Builder.Default
     private Boolean isActive = true;
 
     //Một danh mục có nhiều món.
     @OneToMany(mappedBy = "menuCategory")
     private List<MenuItem> menuItems;
+
+    private LocalDateTime createdAt;
+
+
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+
 }
